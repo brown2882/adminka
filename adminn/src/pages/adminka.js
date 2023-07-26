@@ -7,6 +7,27 @@ export function Adminka() {
         {firstName: 'Cena', lastName: 'John', gmail: 'John@gmail.com', id:2},
         {firstName: 'Admin', lastName: 'admin', gmail: 'admin@gmail.com', id:3}
     ])
+    const[firstName, setFirstName] = useState('');
+    const[lastName, setLastName] = useState('');
+    const [gmail, setGmail] = useState('');
+
+    const addUser = () => {
+        if (firstName && lastName && gmail) {
+            const setUser = {
+                id: value.length + 1,
+                firstName,
+                lastName,
+                gmail,
+            }
+        }
+        setvalue((userss) => [...userss, setvalue]);
+        setFirstName('');
+        setLastName('');
+        setGmail('');
+        // } else {
+        //     alert('error');
+        // }
+    }
     const delatee = (id) => {
         setvalue((userss) => userss.filter((value) => value.id !== id));
     };
@@ -39,10 +60,12 @@ export function Adminka() {
                 </tbody>
 
                 </table>
-            <input type='text' placeholder='Employee First Name'/>
-            <input type='text' placeholder='Employee Last Name'/>
-            <input type='gmail' placeholder='Employee Email Id'/>
-            <button>Add</button>
-        </div>
+            {/*<form>*/}
+                <input type='text' placeholder='Employee First Name'/>
+                <input type='text' placeholder='Employee Last Name'/>
+                <input type='gmail' placeholder='Employee Email Id'/>
+                <button onClick={addUser}>Add</button>
+            {/*</form>*/}
+            </div>
     )
 }
