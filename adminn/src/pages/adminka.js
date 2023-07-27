@@ -61,9 +61,21 @@ export function Adminka() {
 
                 </table>
             {/*<form>*/}
-                <input type='text' placeholder='Employee First Name'/>
-                <input type='text' placeholder='Employee Last Name'/>
-                <input type='gmail' placeholder='Employee Email Id'/>
+                <input type='text'
+                       placeholder='Employee First Name'
+                       value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                />
+                <input type='text'
+                       placeholder='Employee Last Name'
+                        value={lastName}
+                       onChange={(e) => setLastName(e.target.value)}
+                />
+                <input type='gmail'
+                       placeholder='Employee Email Id'
+                        value={gmail}
+                       onChange={(e) => setGmail(e.target.value)}
+                />
                 <button onClick={addUser}>Add</button>
             {/*</form>*/}
             </div>
