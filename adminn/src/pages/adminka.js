@@ -20,7 +20,7 @@ export function Adminka() {
                 gmail,
             }
         }
-        setvalue((userss) => [...userss, setvalue]);
+        setvalue((userss) => [...userss, {firstName: setFirstName, lastName: setLastName, gmail: setGmail}]);
         setFirstName('');
         setLastName('');
         setGmail('');
@@ -33,7 +33,7 @@ export function Adminka() {
     };
 
     return(
-        <div>
+        <>
             <table>
                 <thead>
                     <tr className='head'>
@@ -78,6 +78,6 @@ export function Adminka() {
                 />
                 <button onClick={addUser}>Add</button>
             {/*</form>*/}
-            </div>
+            </>
     )
 }
