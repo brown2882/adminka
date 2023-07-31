@@ -1,6 +1,6 @@
 
 import '../assets/style/stylees.scss'
-import {useState} from "react";
+import {useRef, useState} from "react";
 export function Adminka() {
     const [value, setvalue] = useState([
         {firstName: 'Mark', lastName:'Brown', gmail:'brown@gmail.com', id:1},
@@ -31,7 +31,7 @@ export function Adminka() {
     const delatee = (id) => {
         setvalue((userss) => userss.filter((value) => value.id !== id));
     };
-
+    const setview = useRef();
     return(
         <>
             <table>
@@ -51,8 +51,8 @@ export function Adminka() {
                         <td>{user.gmail}</td>
                         <td>
                             <button  className="delatee" onClick={() => delatee(value.id)}>Delate</button>
-                            <button>Update</button>
-                            <button>View</button>
+                            <button className="update">Update</button>
+                            <button className="delatee" >View</button>
                         </td>
                     </tr>
                 ))}
@@ -65,6 +65,7 @@ export function Adminka() {
                        placeholder='Employee First Name'
                        value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
+                        ref={setview}
                 />
                 <input type='text'
                        placeholder='Employee Last Name'
@@ -76,8 +77,8 @@ export function Adminka() {
                         value={gmail}
                        onChange={(e) => setGmail(e.target.value)}
                 />
-                <button onClick={addUser}>Add</button>
-            {/*</form>*/}
+                <button className="add" onClick={(setFirstName || setLastName  || setGmail === '' ? () => setview.current.focus() : {addUser})}
+                    >Add</button>
             </>
     )
 }
