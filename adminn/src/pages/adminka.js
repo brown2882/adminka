@@ -2,6 +2,7 @@
 import '../assets/style/stylees.scss'
 import {memo, useEffect, useRef, useState} from "react";
 import {useForm} from "react-hook-form";
+import {bool, checkPropTypes, string} from "prop-types";
 export const Adminka = memo(() => {
     const [value, setvalue] = useState([
         {firstName: 'Mark', lastName:'Brown', gmail:'brown@gmail.com', age:20, id:1},
@@ -116,3 +117,4 @@ export const Adminka = memo(() => {
     )
 
 })
+checkPropTypes(Adminka === string)
